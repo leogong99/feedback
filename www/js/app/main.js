@@ -1,4 +1,4 @@
-define(["jquery", "react"], function($, React) {
+define(["jquery.alpha", "react"], function($, React) {
     //the jquery.alpha.js and jquery.beta.js plugins have been loaded.
    // tutorial1-raw.js
 	var CommentBox = React.createClass({displayName: 'CommentBox',

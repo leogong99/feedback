@@ -9,6 +9,9 @@ requirejs.config({
       "react": "react-with-addons",
       "JSXTransformer": "JSXTransformer"
     },
+     "shim": {
+        "jquery.alpha": ["jquery"]
+    },
     'jsx': {
       fileExtension: '.jsx'
     }
