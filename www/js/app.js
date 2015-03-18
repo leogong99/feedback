@@ -15,4 +15,4 @@ requirejs.config({
 });
 
 // Load the main app module to start the app
-requirejs(["http://54.148.79.245/www/app/main"]);
+requirejs(["app/main"]);
