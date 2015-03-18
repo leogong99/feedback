@@ -12,6 +12,6 @@ define(["jquery", "react"], function($, React) {
 	});
 	React.render(
 	  React.createElement(CommentBox, null),
-	  $('feedback')
+	  document.getElementsByTagName('feedback')[0]
 	);
 });
