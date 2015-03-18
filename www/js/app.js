@@ -7,7 +7,8 @@ requirejs.config({
     "paths": {
       "app": "../app",
       "react": "react-with-addons",
-      "JSXTransformer": "JSXTransformer"
+      "JSXTransformer": "JSXTransformer",
+      "html2canvas": "html2canvas"
     },
     'jsx': {
       fileExtension: '.jsx'
