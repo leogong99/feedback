@@ -1,47 +1,33 @@
-/*
- * node static file server:
- * modified from https://gist.github.com/rpflorence/701407
- */
-/*jslint evil: true, nomen: true, sloppy: true */
-
-var http = require('http'),
-    url = require('url'),
-    path = require('path'),
-    fs = require('fs'),
-    port = process.argv[2] || 8888,
-    types = {
-        'html': 'text/html',
-        'js': 'application/javascript'
-    },
-    site = 'http://localhost:' + port;
-
-http.createServer(function (request, response) {
-    var uri = url.parse(request.url).pathname,
-        filename = path.join(__dirname, '..', uri);
-
-    fs.exists(filename, function (exists) {
-      if (!exists) {
-          response.writeHead(404, {'Content-Type': 'text/plain'});
-          response.write('404 Not Found\n');
-          response.end();
-          return;
-      }
-
-      if(!fs.lstatSync(filename).isDirectory()) {
-            var type = filename.split('.');
-            type = type[type.length - 1];
-
-            response.writeHead(200, { 'Content-Type': types[type] + '; charset=utf-8' });
-            fs.createReadStream(filename).pipe(response);
-      } else {
-        /**
-         * if users visit the site such as http://localhost:8888
-         * then lead them to http://localhost:8888/www/app.html
-         */
-        response.writeHead(301, {'Location': site + '/www/app.html' });
-        response.end();
-     }
+var sys = require("sys"),
+my_http = require("http"),
+path = require("path"),
+url = require("url"),
+filesys = require("fs");
+my_http.createServer(function(request,response){
+  var my_path = url.parse(request.url).pathname;
+  var full_path = path.join(process.cwd(),my_path);
+  path.exists(full_path,function(exists){
+    if(!exists){
+      response.writeHeader(404, {"Content-Type": "text/plain"});  
+      response.write("404 Not Found\n");  
+      response.end();
+    }
+    else{
+      filesys.readFile(full_path, "binary", function(err, file) {  
+           if(err) {  
+               response.writeHeader(500, {"Content-Type": "text/plain"});  
+               response.write(err + "\n");  
+               response.end();  
+         
+           }  
+         else{
+          response.writeHeader(200);  
+              response.write(file, "binary");  
+              response.end();
+        }
+           
+      });
+    }
   });
-}).listen(parseInt(port, 10));
-
-console.log('Static file server running at\n  => ' + site + '/\nCTRL + C to shutdown');
+}).listen(8888);
+sys.puts("Server Running on 8888");     
