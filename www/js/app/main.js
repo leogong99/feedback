@@ -1,4 +1,6 @@
-define(["jquery", "react", "html2canvas"], function($, React, html2canvas) {
+define(["require", "jquery", "react"], function(require, $, React) {
+
+	var html2canvas = require("./html2canvas");
     //the jquery.alpha.js and jquery.beta.js plugins have been loaded.
    // tutorial1-raw.js
 	var CommentBox = React.createClass({displayName: 'CommentBox',
