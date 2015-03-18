@@ -1,4 +1,4 @@
-define(["jquery.alpha", "react"], function($, React) {
+define(["jquery", "react"], function($, React) {
     //the jquery.alpha.js and jquery.beta.js plugins have been loaded.
    // tutorial1-raw.js
 	var CommentBox = React.createClass({displayName: 'CommentBox',
@@ -14,4 +14,5 @@ define(["jquery.alpha", "react"], function($, React) {
 	  React.createElement(CommentBox, null),
 	  document.getElementsByTagName('feedback')[0]
 	);
+	return jQuery.noConflict(true);
 });
