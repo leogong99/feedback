@@ -3,7 +3,7 @@
 // Configure loading modules from the lib directory,
 // except 'app' ones, 
 requirejs.config({
-    "baseUrl": "http://54.148.79.245/www/js/lib",
+    "baseUrl": "http://54.68.180.166/www/js/lib",
     "paths": {
       "app": "../app",
       "react": "react-with-addons",

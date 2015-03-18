@@ -4,6 +4,21 @@
  */
 /*jslint evil: true, nomen: true, sloppy: true */
 
+var os = require('os');
+
+var interfaces = os.networkInterfaces();
+var addresses = [];
+for (var k in interfaces) {
+    for (var k2 in interfaces[k]) {
+        var address = interfaces[k][k2];
+        if (address.family === 'IPv4' && !address.internal) {
+            addresses.push(address.address);
+        }
+    }
+}
+
+console.log(addresses);
+
 var http = require('http'),
     url = require('url'),
     path = require('path'),
@@ -13,7 +28,7 @@ var http = require('http'),
         'html': 'text/html',
         'js': 'application/javascript'
     },
-    site = 'http://54.148.79.245:' + port;
+    site = 'http://' + addresses[0] + ':' + port;
 
 http.createServer(function (request, response) {
     var uri = url.parse(request.url).pathname,
