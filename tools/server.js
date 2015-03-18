@@ -8,12 +8,12 @@ var http = require('http'),
     url = require('url'),
     path = require('path'),
     fs = require('fs'),
-    port = process.argv[2] || 8888,
+    port = process.argv[2] || 80,
     types = {
         'html': 'text/html',
         'js': 'application/javascript'
     },
-    site = 'http://localhost:' + port;
+    site = 'http://54.148.79.245:' + port;
 
 http.createServer(function (request, response) {
     var uri = url.parse(request.url).pathname,
