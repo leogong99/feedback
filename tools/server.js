@@ -21,13 +21,13 @@ http.createServer(function (request, response) {
       filename = path.join(__dirname, '..', uri);
 
 
-  
+  var img;
   if (request.method == 'POST') {
     request.on('data', function (chunk) {
-      body += chunk;
+      img += chunk;
     });
     request.on('end', function () {
-      fs.writeFile("/tmp/test.png", chunk, "binary", function(err) {
+      fs.writeFile("/tmp/test.png", img, "binary", function(err) {
         if(err) {
           console.log(err);
         } else {
