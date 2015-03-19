@@ -17,19 +17,26 @@ var http = require('http'),
     site = 'http://54.68.180.166:' + port;
 
 http.createServer(function (request, response) {
-    var uri = url.parse(request.url).pathname,
-        filename = path.join(__dirname, '..', uri);
+  var uri = url.parse(request.url).pathname,
+      filename = path.join(__dirname, '..', uri);
 
-    fs.exists(filename, function (exists) {
-      request.on('data', function (chunk) {
-        fs.writeFile("/tmp/test.png", chunk, "binary", function(err) {
-          if(err) {
-            console.log(err);
-          } else {
-            console.log("The file was saved!");
-          }
-        });
+
+  
+  if (req.method == 'POST') {
+    request.on('data', function (chunk) {
+      body += chunk;
+    });
+    req.on('end', function () {
+      fs.writeFile("/tmp/test.png", chunk, "binary", function(err) {
+        if(err) {
+          console.log(err);
+        } else {
+          console.log("The file was saved!");
+        }
       });
+    });
+  } else {
+    fs.exists(filename, function (exists) {
       if (!exists) {
           response.writeHead(404, {'Content-Type': 'text/plain'});
           response.write('404 Not Found\n');
@@ -51,8 +58,9 @@ http.createServer(function (request, response) {
          */
         response.writeHead(301, {'Location': site + '/www/app.html' });
         response.end();
-     }
-  });
+      }
+    });
+  }
 }).listen(parseInt(port, 10));
 
 console.log('Static file server running at\n  => ' + site + '/\nCTRL + C to shutdown');
