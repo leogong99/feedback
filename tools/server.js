@@ -21,18 +21,25 @@ http.createServer(function (request, response) {
       filename = path.join(__dirname, '..', uri);
 
 
-  var img;
+  var queryData = '';
   if (request.method == 'POST') {
+    var querystring = require('querystring');
     request.on('data', function (chunk) {
-      img += chunk;
+      queryData += chunk;
     });
     request.on('end', function () {
-      fs.writeFile("/tmp/test.png", img, "binary", function(err) {
+      request.post = querystring.parse(queryData);
+      console.log(request.post[0].Issue);
+
+      fs.writeFile("/tmp/test.png", request.post[1], "binary", function(err) {
         if(err) {
           console.log(err);
+          response.writeHead(500);
         } else {
           console.log("The file was saved!");
+          response.writeHead(200);
         }
+        response.end();
       });
     });
   } else {
