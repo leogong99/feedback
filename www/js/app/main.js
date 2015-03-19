@@ -5,7 +5,7 @@ define(["require", "jquery", "react", "feedback", "html2canvas", "init"], functi
 	var CommentBox = React.createClass({displayName: 'CommentBox',
 	  render: function() {
 	    return (
-	      React.createElement('div', {className: "commentBox"},
+	      React.createElement('div', {className: "commentBox", url: '54.68.180.166'},
 	        "Hello, world! I am a CommentBox."
 	      )
 	    );
