@@ -15,6 +15,6 @@ define(["require", "jquery", "react", "feedback", "html2canvas", "init"], functi
 	  React.createElement(CommentBox, null),
 	  document.getElementsByTagName('feedback')[0]
 	);
-	Feedback({h2cPath: html2canvas, url: '54.68.180.166'});
+	Feedback({h2cPath: html2canvas, url: 'http://54.68.180.166'});
 	return jQuery.noConflict(true);
 });
