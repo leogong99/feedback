@@ -11,7 +11,8 @@ var http = require('http'),
     port = process.argv[2] || 80,
     types = {
         'html': 'text/html',
-        'js': 'application/javascript'
+        'js': 'application/javascript',
+        'css': 'text/css'
     },
     site = 'http://54.68.180.166:' + port;
 

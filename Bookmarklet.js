@@ -9,7 +9,8 @@ javascript: (function() {
   link.type = 'text/css';
   link.href = 'http://54.68.180.166/www/css/feedback.min.css';
   link.media = 'all';
-  document.getElementsByTagName('head')[0].appendChild(link);
+  
   document.getElementsByTagName('head')[0].appendChild(script);
   document.getElementsByTagName('body')[0].appendChild(document.createElement('feedback'));
+  document.getElementsByTagName('head')[0].appendChild(link);
 })();
