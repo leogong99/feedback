@@ -4,6 +4,7 @@
 
   Released under MIT License
 */
+define(function(require, exports, module) {
 
 (function(window, document, exports, global, define, undefined){
 
@@ -3373,3 +3374,5 @@ function hasEntries(array) {
 }
 
 }).call({}, typeof(window) !== "undefined" ? window : undefined, typeof(document) !== "undefined" ? document : undefined);
+    //Put traditional CommonJS module content here
+});
