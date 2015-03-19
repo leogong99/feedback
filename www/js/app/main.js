@@ -15,6 +15,6 @@ define(["require", "jquery", "react", "feedback"], function(require, $, React, f
 	  React.createElement(CommentBox, null),
 	  document.getElementsByTagName('feedback')[0]
 	);
-	Feedback({h2cPath:'lib/html2canvas.js'});
+	Feedback({h2cPath:'www/js/lib/html2canvas.js'});
 	return jQuery.noConflict(true);
 });
