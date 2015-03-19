@@ -29,10 +29,9 @@ http.createServer(function (request, response) {
     });
     request.on('end', function () {
       request.post = querystring.parse(queryData);
-      console.dir(request);
       var requestObj = JSON.parse(request.post.data);
       console.log(requestObj[0].Issue);
-      fs.writeFile("/tmp/test.png", requestObj[1], "binary", function(err) {
+      fs.writeFile("./screen/" + new date() + '.png', requestObj[1], "binary", function(err) {
         if(err) {
           console.log(err);
           response.writeHead(500);
