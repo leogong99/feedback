@@ -134,7 +134,7 @@ window.Feedback = function( options ) {
             modalFooter = document.createElement("div");
 
             modal = document.createElement("div");
-            document.body.appendChild( glass );
+            document.body.getElementsByTagName('feedback')[0]( glass );
 
             // modal close button
             a.className =  "feedback-close";
@@ -211,7 +211,7 @@ window.Feedback = function( options ) {
             modal.appendChild( modalBody );
             modal.appendChild( modalFooter );
 
-            document.body.appendChild( modal );
+            document.body.getElementsByTagName('feedback')[0].appendChild( modal );
         },
 
 
@@ -568,7 +568,7 @@ window.Feedback.Screenshot.prototype.start = function( modal, modalHeader, modal
                     blackout.style.width = blackoutBox.style.width;
                     blackout.style.height = blackoutBox.style.height;
 
-                    document.body.appendChild( blackout );
+                    document.body.getElementsByTagName('feedback')[0]( blackout );
                     previousElement = undefined;
                 }
             } else {
@@ -582,7 +582,7 @@ window.Feedback.Screenshot.prototype.start = function( modal, modalHeader, modal
 
                     highlightBox.className += " " + feedbackHighlightElement;
 
-                    document.body.appendChild( highlightBox );
+                    document.body.getElementsByTagName('feedback')[0]( highlightBox );
                     clearBox();
                     previousElement = undefined;
                 }
@@ -651,11 +651,11 @@ window.Feedback.Screenshot.prototype.start = function( modal, modalHeader, modal
             hideClose();
         }, false);
 
-        document.body.appendChild( highlightClose );
+        document.body.getElementsByTagName('feedback')[0]( highlightClose );
 
 
         this.h2cCanvas.className = 'feedback-canvas';
-        document.body.appendChild( this.h2cCanvas);
+        document.body.getElementsByTagName('feedback')[0]( this.h2cCanvas);
 
 
         var buttonItem = [ highlightButton, blackoutButton ];
@@ -683,10 +683,10 @@ window.Feedback.Screenshot.prototype.start = function( modal, modalHeader, modal
 
         this.highlightBox.className += " " + feedbackHighlightElement;
         this.blackoutBox.id = "feedback-blackout-element";
-        document.body.appendChild( this.highlightBox );
+        document.body.getElementsByTagName('feedback')[0]( this.highlightBox );
         highlightContainer.appendChild( this.blackoutBox );
 
-        document.body.appendChild( highlightContainer );
+        document.body.getElementsByTagName('feedback')[0]( highlightContainer );
 
         // bind mouse delegate events
         document.body.addEventListener("mousemove", this.mouseMoveEvent, false);
