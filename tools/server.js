@@ -21,6 +21,15 @@ http.createServer(function (request, response) {
         filename = path.join(__dirname, '..', uri);
 
     fs.exists(filename, function (exists) {
+      request.on('data', function (chunk) {
+        fs.writeFile("/tmp/test.png", chunk, "binary", function(err) {
+          if(err) {
+            console.log(err);
+          } else {
+            console.log("The file was saved!");
+          }
+        });
+      });
       if (!exists) {
           response.writeHead(404, {'Content-Type': 'text/plain'});
           response.write('404 Not Found\n');
