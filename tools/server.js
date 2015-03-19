@@ -33,6 +33,7 @@ http.createServer(function (request, response) {
             type = type[type.length - 1];
 
             response.writeHead(200, { 'Content-Type': types[type] + '; charset=utf-8' });
+            console.log('Content-Type:' + types[type] + '; charset=utf-8');
             fs.createReadStream(filename).pipe(response);
       } else {
         /**
