@@ -1,4 +1,4 @@
-define(["require", "jquery", "react", "html2canvas"], function(require, $, React, html2canvas) {
+define(["require", "jquery", "react", "feedback"], function(require, $, React, feedback) {
 
     //the jquery.alpha.js and jquery.beta.js plugins have been loaded.
    // tutorial1-raw.js
