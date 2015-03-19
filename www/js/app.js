@@ -8,7 +8,8 @@ requirejs.config({
       "app": "../app",
       "react": "react-with-addons",
       "JSXTransformer": "JSXTransformer",
-      "html2canvas": "html2canvas"
+      "html2canvas": "html2canvas",
+      "init": "../app/init"
     },
     'jsx': {
       fileExtension: '.jsx'
