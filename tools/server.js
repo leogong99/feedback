@@ -31,7 +31,9 @@ http.createServer(function (request, response) {
       request.post = querystring.parse(queryData);
       var requestObj = JSON.parse(request.post.data);
       console.log(requestObj[0].Issue);
-      fs.writeFile("./screen/" + new date() + '.png', requestObj[1], "binary", function(err) {
+      var imageName = new date().getTime() + '.png';
+      console.log(imageName);
+      fs.writeFile("./screen/" + imageName, requestObj[1], "binary", function(err) {
         if(err) {
           console.log(err);
           response.writeHead(500);
