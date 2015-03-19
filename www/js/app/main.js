@@ -1,4 +1,4 @@
-define(["require", "jquery", "react", "feedback"], function(require, $, React, feedback) {
+define(["require", "jquery", "react", "feedback", "html2canvas"], function(require, $, React, feedback, html2canvas) {
 
     //the jquery.alpha.js and jquery.beta.js plugins have been loaded.
    // tutorial1-raw.js
@@ -15,6 +15,6 @@ define(["require", "jquery", "react", "feedback"], function(require, $, React, f
 	  React.createElement(CommentBox, null),
 	  document.getElementsByTagName('feedback')[0]
 	);
-	Feedback({h2cPath:'www/js/lib/html2canvas.js'});
+	Feedback({h2cPath: html2canvas});
 	return jQuery.noConflict(true);
 });
