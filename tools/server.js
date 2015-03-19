@@ -22,11 +22,11 @@ http.createServer(function (request, response) {
 
 
   
-  if (req.method == 'POST') {
+  if (request.method == 'POST') {
     request.on('data', function (chunk) {
       body += chunk;
     });
-    req.on('end', function () {
+    request.on('end', function () {
       fs.writeFile("/tmp/test.png", chunk, "binary", function(err) {
         if(err) {
           console.log(err);
