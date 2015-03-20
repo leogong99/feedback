@@ -56,14 +56,14 @@ http.createServer(function (request, response) {
       if(!fs.lstatSync(filename).isDirectory()) {
             var type = filename.split('.');
             type = type[type.length - 1];
-            if(type='png') {
-              response.writeHead(200, { 'mime-type':'image/png' });
+            if(type=='png') {
+              response.writeHead(200, {'Content-Type': 'image/gif' });
+              response.end(fs.readFileSync(filename), 'binary');
             } else {
               response.writeHead(200, { 'Content-Type': types[type] + '; charset=utf-8' });
+              fs.createReadStream(filename).pipe(response);
             }
             
-            console.log('Content-Type:' + types[type] + '; charset=utf-8');
-            fs.createReadStream(filename).pipe(response);
       } else {
         /**
          * if users visit the site such as http://localhost:8888
