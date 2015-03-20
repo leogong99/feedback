@@ -57,7 +57,7 @@ http.createServer(function (request, response) {
             var type = filename.split('.');
             type = type[type.length - 1];
             if(type=='png') {
-              response.writeHead(200, {'Content-Type': 'image/gif' });
+              response.writeHead(200, {'Content-Type': 'image/png' });
               response.end(fs.readFileSync(filename), 'binary');
             } else {
               response.writeHead(200, { 'Content-Type': types[type] + '; charset=utf-8' });
