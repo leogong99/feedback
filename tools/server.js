@@ -56,8 +56,12 @@ http.createServer(function (request, response) {
       if(!fs.lstatSync(filename).isDirectory()) {
             var type = filename.split('.');
             type = type[type.length - 1];
-
-            response.writeHead(200, { 'Content-Type': types[type] + '; charset=utf-8' });
+            if(type='png') {
+              response.writeHead(200, { 'mime-type':'image/png' });
+            } else {
+              response.writeHead(200, { 'Content-Type': types[type] + '; charset=utf-8' });
+            }
+            
             console.log('Content-Type:' + types[type] + '; charset=utf-8');
             fs.createReadStream(filename).pipe(response);
       } else {
