@@ -33,7 +33,7 @@ http.createServer(function (request, response) {
       console.log(requestObj[0].Issue);
       var imageName = new Date().getTime() + '.png';
       console.log(imageName);
-      fs.writeFile("./screen/" + imageName, requestObj[1], "binary", function(err) {
+      fs.writeFile(__dirname + "/screen/" + imageName, requestObj[1], "binary", function(err) {
         if(err) {
           console.log(err);
           response.writeHead(500);
