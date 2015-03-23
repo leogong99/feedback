@@ -3,7 +3,7 @@
 // Configure loading modules from the lib directory,
 // except 'app' ones, 
 requirejs.config({
-  "baseUrl": "http://54.68.180.166/javascripts/lib",
+  "baseUrl": "http://jingong.desktop.amazon.com:3001/javascripts/lib",
 	"paths": {
 		"app": "../app",
 		"react": "react-with-addons",

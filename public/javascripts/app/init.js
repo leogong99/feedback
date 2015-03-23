@@ -2,7 +2,7 @@ define(function() {
 	var link = document.createElement('link');
 	link.rel = 'stylesheet';
 	link.type = 'text/css';
-	link.href = 'http://54.68.180.166/stylesheets/feedback.css';
+	link.href = 'http://jingong.desktop.amazon.com:3001/stylesheets/feedback.css';
 	link.media = 'all';
 
 	var head = document.getElementsByTagName('body')[0];
@@ -12,6 +12,6 @@ define(function() {
 	link1.rel = 'stylesheet';
 	link1.type = 'text/css';
 	link1.media = 'all';
-	link1.href = 'http://54.68.180.166/stylesheets/bootstrap.css';
+	link1.href = 'http://jingong.desktop.amazon.com:3001/stylesheets/bootstrap.css';
 	head.appendChild(link1);
 });

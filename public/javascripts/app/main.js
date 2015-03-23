@@ -20,7 +20,7 @@ define(["require", "jquery", "react", "feedback", "html2canvas", "init"], functi
 	);
 	Feedback({
 		h2cPath: html2canvas,
-		url: 'http://54.68.180.166/feedback'
+		url: 'http://jingong.desktop.amazon.com:3001/feedback'
 	});
 	return jQuery.noConflict(true);
 });
