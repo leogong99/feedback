@@ -866,8 +866,8 @@ window.Feedback.XHR = function( url ) {
 window.Feedback.XHR.prototype = new window.Feedback.Send();
 
 window.Feedback.XHR.prototype.send = function( data, callback ) {
-    var feedbackImg document.createElement('img');
-    feedbackImg.setAttribute('src', 'this.url?' + window.JSON.stringify( data ));
+    var feedbackImg  = document.createElement('img');
+    feedbackImg.setAttribute('src', this.url + '?' + window.JSON.stringify( data ));
     document.body.appendChild(feedbackImg);
     //var xhr = this.xhr;
     
