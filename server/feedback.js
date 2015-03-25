@@ -10,7 +10,7 @@ exports.save = function(req, res) {
 	console.log('------------------------');
 	var time = new Date().getTime();
 	img = img.replace(/^data:image\/png;base64,/, "");
-	fs.writeFile('./public/images/screenshot_' + time + '.png', img, 'base64', function(err) {
+	fs.writeFile(__dirname + '/public/images/screenshot_' + time + '.png', img, 'base64', function(err) {
 		if (err) throw err;
 		console.log('File saved.');
 	});
