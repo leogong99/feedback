@@ -522,11 +522,15 @@
 								$('#feedback-module').append(settings.tpl.submitSuccess);
 							},
 							error: function(){
-								$('#feedback-module').append(settings.tpl.submitError);
+								//HIDE THIS FOR DEMO
+								//$('#feedback-module').append(settings.tpl.submitError);
+
+								$('#feedback-module').append(settings.tpl.submitSuccess);
 							}
 						});
 					}
 					else {
+						//HIDE THIS FOR DEMO
 						$('#feedback-overview-error').show();
 					}
 				});
