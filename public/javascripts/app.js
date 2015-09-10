@@ -13,6 +13,9 @@ requirejs.config({
 	},
 	'jsx': {
 		fileExtension: '.jsx'
+	},
+	shim: {
+        'feedback': [ 'jquery' ]
 	}
 });
 

@@ -2,7 +2,7 @@ define(function() {
 	var link = document.createElement('link');
 	link.rel = 'stylesheet';
 	link.type = 'text/css';
-	link.href = 'http://jingong.desktop.amazon.com:3001/stylesheets/feedback.css';
+	link.href = 'http://jingong.desktop.amazon.com:3001/stylesheets/feedback.min.css';
 	link.media = 'all';
 
 	var head = document.getElementsByTagName('body')[0];
